@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="LoginApp.Maui.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:LoginApp.Maui"
+    xmlns:views="clr-namespace:LoginApp.Maui.Views"
+    Shell.TabBarIsVisible="False">
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:LoginPage}"
+        Route="LoginPage"
+        FlyoutItemIsVisible="False"
+        Shell.FlyoutBehavior="Disabled"/>
+
+    <FlyoutItem Route="HomePage" FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent Title="Home"  ContentTemplate="{DataTemplate views:HomePage}"/>
+        <ShellContent Title="About"  ContentTemplate="{DataTemplate views:AboutPage}"/>
+        <ShellContent Title="Contact"  ContentTemplate="{DataTemplate views:ContactPage}"/>
+    </FlyoutItem>
+
+    <Shell.FlyoutFooter>
+        <StackLayout Padding="20">
+            <Button Text="Sign Out" Command="{Binding SignOutCommand}" BackgroundColor="IndianRed" TextColor="White"></Button>
+        </StackLayout>
+    </Shell.FlyoutFooter>
+</Shell>
